@@ -21,7 +21,7 @@ export function MoviesPage() {
     setSearchParams({ query: e.currentTarget.elements.query.value });
 
     if (e.currentTarget.elements.query.value.trim() === '') {
-      toast.error('Все пропало, пиши по новой!', { position: 'top-center' });
+      toast.error('Все пропало, пиши наново!', { position: 'top-center' });
       return;
     }
     e.currentTarget.reset();
