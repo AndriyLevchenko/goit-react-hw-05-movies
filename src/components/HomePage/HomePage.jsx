@@ -3,7 +3,7 @@ import { fetchFilmsTrending } from 'api-srv/fetchFilms';
 import { ToastContainer, toast } from 'react-toastify';
 import { Link } from '../Navigation/Navigation.styled';
 
-export function HomePage() {
+export default function HomePage() {
   const [list, setList] = useState([]);
 
   useEffect(() => {

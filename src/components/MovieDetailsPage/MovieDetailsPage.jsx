@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { FilmCard } from 'components/FilmCard/FilmCard';
 
-export function MovieDetailsPage() {
+export default function MovieDetailsPage() {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
 

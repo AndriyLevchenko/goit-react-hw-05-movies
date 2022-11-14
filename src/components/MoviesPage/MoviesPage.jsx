@@ -10,7 +10,7 @@ import {
 import { FcSearch } from 'react-icons/fc';
 import { toast } from 'react-toastify';
 
-export function MoviesPage() {
+export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
