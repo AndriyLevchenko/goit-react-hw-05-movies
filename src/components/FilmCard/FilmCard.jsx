@@ -10,7 +10,7 @@ import { AiFillCaretLeft } from 'react-icons/ai';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
   
 export const FilmCard = ({ item }) => {
-  const filmID = item.id;
+  // const filmID = item.id;
   const location = useLocation();
 
   return (
@@ -31,7 +31,7 @@ export const FilmCard = ({ item }) => {
           <h2>
             {item.title}({item.release_date.slice(0, 4)})
           </h2>
-          <p>User score: {item.vote_average * 10}%</p>
+          <p>User score: {Math.round(item.vote_average * 10)}%</p>
           <h3>Overview</h3>
           <p>{item.overview}</p>
           <h3>Genres</h3>
@@ -47,13 +47,13 @@ export const FilmCard = ({ item }) => {
         <h3>Additional information</h3>
         <ul>
           <CastLink
-            to={`/movies/${filmID}/cast`}
+            to={`cast`}
             state={{ from: location?.state?.from ?? '/' }}
           >
             Cast
           </CastLink>
           <NavLink
-            to={`/movies/${filmID}/reviews`}
+            to={`reviews`}
             state={{ from: location?.state?.from ?? '/' }}
           >
             Reviews

@@ -1,24 +1,24 @@
-import { useLocation } from "react-router-dom"
+// import { useLocation } from "react-router-dom"
 import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import { fetchFilmsReviews } from "api-srv/fetchFilms";
 
 export const Reviews = () => {
    const [reviews, setReviews] = useState([])
-   const location = useLocation();
-   const preId = location.pathname.slice(8);
-   const id = preId.slice(0, -8);
+//    const location = useLocation();
+   const {itemId} = useParams();
 
    useEffect(() => {
      async function Reviews () {
         try {
-            const reviewItem = await fetchFilmsReviews(id);
+            const reviewItem = await fetchFilmsReviews(itemId);
             setReviews(reviewItem)
         } catch (error) {
             console.log(error)
         }
        };
      Reviews();
-    }, [id])
+    }, [itemId])
 
     if (reviews.length !== 0) {
         return (

@@ -36,7 +36,7 @@ export default function MoviesPage() {
       try {
         const cardSearch = await fetchFilmsSearch(query);
         if (cardSearch.length === 0) {
-          alert(`по запросу "${query}", фильмов не найдено`);
+          alert(`за запитом "${query}", фільмів не знайдено`);
         }
         setMovies(cardSearch);
       } catch (error) {

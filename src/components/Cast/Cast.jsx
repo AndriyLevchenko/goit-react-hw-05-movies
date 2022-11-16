@@ -1,25 +1,23 @@
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchFilmsCredits } from 'api-srv/fetchFilms';
 import { ActorImg, ActorContainer } from './Cast.styled';
 
 export const Cast = () => {
   const [actors, setActors] = useState([]);
-  const location = useLocation();
-  const preId = location.pathname.slice(8);
-  const id = preId.slice(0, -5);
+  const {itemId} = useParams();
 
   useEffect(() => {
     async function FetchActors() {
       try {
-        const findActors = await fetchFilmsCredits(id);
+        const findActors = await fetchFilmsCredits(itemId);
         setActors(findActors);
       } catch (error) {
         console.log(error);
       }
     }
     FetchActors();
-  }, [id]);
+  }, [itemId]);
 
   return (
     <>
